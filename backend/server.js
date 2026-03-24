@@ -1,17 +1,20 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import express from "express";
-import mongoose from "mongoose";
+import connectDB from "./config/mongodb.js"
 import cors from "cors";
 import ticketRoutes from "./routes/ticketRoutes.js";
 
 const app = express();
+const PORT=process.env.PORT || 8000
+
+connectDB()
 app.use(express.json());
 app.use(cors());
-
-mongoose.connect("mongodb://127.0.0.1:27017/ticketts-system").then(() => console.log("DB Connected")).catch((err) => console.log(err));
 
 app.use("/api/tickets", ticketRoutes);
 
 app.get("/", (req, res) => {
   res.send("working fully sucess fine good");
 });
-app.listen(8000, () => console.log("Server running on port 8000"));
+app.listen(PORT, () => console.log("Server running on port 8000"));
