@@ -67,7 +67,7 @@ Create a `.env` file inside the **backend** folder and add:
 
 ```
 MONGO_URI=mongodb://127.0.0.1:27017/ticketts-system
-PORT=5000
+PORT=8000
 ```
 ### I used mongodb compass because I was getting DNS error while using mongodb atlas.
 👉 **Important:**
