@@ -64,7 +64,7 @@ export default function TicketList() {
       return "bg-gray-100 text-gray-700";
     }
   };
-  const filteredTickets = tickets.filter((t) => {
+  const filteredTickets = tickets?.filter((t) => {
     const value = search.toLowerCase();
 
     return (
